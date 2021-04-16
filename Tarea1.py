@@ -15,8 +15,6 @@ def soltarFichaEnColumna(ficha,columna,tablero):
             return
 
 def completarTableroEnOrden(secuencia,tablero):
-	if columnavalida(secuencia) == False:
-		return 1
 	x = 0
 	for i in secuencia:
 		if x % 2 == 0:
@@ -27,9 +25,6 @@ def completarTableroEnOrden(secuencia,tablero):
 	return tablero
 
 def dibujarTablero(tablero):
-	if completarTableroEnOrden(secuencia,tablero) == 1:
-		print("La secuencia no es valida")
-		return
 	for fila in tablero:
 		print( )
 		for columna in fila: 
@@ -43,5 +38,8 @@ def columnavalida(secuencia):
 	return True
 
 
-secuencia = [3,1,1,5,4,1,3,4,5]
-dibujarTablero(completarTableroEnOrden(secuencia,tableroVacio())) 
+secuencia = [9,1,5,4,1,3,4,5]
+if columnavalida(secuencia) == False:
+	print("La secuencia no es valida")
+else:
+	dibujarTablero(completarTableroEnOrden(secuencia,tableroVacio())) 
