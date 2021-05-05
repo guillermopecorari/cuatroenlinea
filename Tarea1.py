@@ -28,18 +28,55 @@ def dibujarTablero(tablero):
 	for fila in tablero:
 		print( )
 		for columna in fila: 
-			print(columna, end = ' ')
+				print(columna, end = '  ')
 
-def columnavalida(secuencia):
-	x=0
+def columnavalida(secuencia):	
 	for x in secuencia:
 		if x > 7 or x < 1:
 			return False
 	return True
 
+def contenidoColumna(nro_columna, tablero):
+	columna = []
+	for fila in tablero:
+		celda = fila[nro_columna - 1]
+		columna.append(celda)
+	return columna
 
-secuencia = [9,1,5,4,1,3,4,5]
+def contenidoFila(nro_fila, tablero):
+	fila = []
+	x = 0
+	for columna in tablero:
+		x += 1
+		if x == nro_fila:
+			for celda in columna:
+				fila.append(celda)
+	return fila
+
+def contenidoFilas(tablero):
+	filas = []
+	x = 1
+	for columna in tablero:
+		filas.append(contenidoFila(x,tablero))
+		x += 1
+	return filas
+
+def contenidoColumnas(tablero):
+	columnas = []
+	x = 1
+	for fila in tablero:
+		columnas.append(contenidoColumna(x,tablero))  
+		x += 1                               
+	return columnas
+
+
+tablero = []
+secuencia = [1,2,3,4,5,6,7,1,2,3,4,5,6,7]
 if columnavalida(secuencia) == False:
 	print("La secuencia no es valida")
 else:
-	dibujarTablero(completarTableroEnOrden(secuencia,tableroVacio())) 
+	tablero = completarTableroEnOrden(secuencia,tableroVacio())
+	dibujarTablero(tablero)
+
+print()
+print(contenidoColumnas(tablero))
