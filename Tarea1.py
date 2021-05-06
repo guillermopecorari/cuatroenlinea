@@ -25,10 +25,13 @@ def completarTableroEnOrden(secuencia,tablero):
 	return tablero
 
 def dibujarTablero(tablero):
+	print()
 	for fila in tablero:
-		print( )
+		print("|",end = ' ')
 		for columna in fila: 
-				print(columna, end = '  ')
+			print(str(columna).replace('0',' '), end = '  ')
+		print("|")
+	print("+----------------------+")
 
 def columnavalida(secuencia):	
 	for x in secuencia:
@@ -69,14 +72,12 @@ def contenidoColumnas(tablero):
 		x += 1                               
 	return columnas
 
-
 tablero = []
-secuencia = [1,2,3,4,5,6,7,1,2,3,4,5,6,7]
+secuencia = [1,2,4,6,2,3,1]
 if columnavalida(secuencia) == False:
 	print("La secuencia no es valida")
 else:
 	tablero = completarTableroEnOrden(secuencia,tableroVacio())
 	dibujarTablero(tablero)
 
-print()
-print(contenidoColumnas(tablero))
+#print(contenidoColumnas(tablero))
