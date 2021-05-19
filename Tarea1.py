@@ -73,7 +73,11 @@ def contenidoColumnas(tablero):
 	return columnas
 
 tablero = []
-secuencia = [1,2,4,6,2,3,1]
+secuencia_texto = input("Ingrese la secuencia de numeros:	")
+secuencia = []
+for items in secuencia_texto.split(','):
+	secuencia.append(int(items))
+	
 if columnavalida(secuencia) == False:
 	print("La secuencia no es valida")
 else:
