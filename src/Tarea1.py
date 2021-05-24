@@ -84,4 +84,4 @@ else:
 	tablero = completarTableroEnOrden(secuencia,tableroVacio())
 	dibujarTablero(tablero)
 
-#print(contenidoColumnas(tablero))
+#print(contenidoFila(6,tablero))
