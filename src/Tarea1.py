@@ -33,7 +33,7 @@ def dibujarTablero(tablero):
 		print("|")
 	print("+----------------------+")
 
-def columnavalida(secuencia):	
+def secuenciaValida(secuencia):	
 	for x in secuencia:
 		if x > 7 or x < 1:
 			return False
@@ -69,19 +69,20 @@ def contenidoColumnas(tablero):
 	x = 1
 	for fila in tablero:
 		columnas.append(contenidoColumna(x,tablero))  
-		x += 1                               
+		x += 1
+	columnas.append(contenidoColumna(x,tablero))                               
 	return columnas
 
 tablero = []
-secuencia_texto = input("Ingrese la secuencia de numeros:	")
+#secuencia_texto = input("Ingrese la secuencia de numeros:	")
 secuencia = []
-for items in secuencia_texto.split(','):
-	secuencia.append(int(items))
+#for items in secuencia_texto.split(','):
+#	secuencia.append(int(items))
 	
-if columnavalida(secuencia) == False:
+if secuenciaValida(secuencia) == False:
 	print("La secuencia no es valida")
 else:
 	tablero = completarTableroEnOrden(secuencia,tableroVacio())
 	dibujarTablero(tablero)
 
-#print(contenidoFila(6,tablero))
+print(contenidoFilas(tablero))
