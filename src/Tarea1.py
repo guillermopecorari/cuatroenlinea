@@ -77,12 +77,10 @@ tablero = []
 #secuencia_texto = input("Ingrese la secuencia de numeros:	")
 secuencia = []
 #for items in secuencia_texto.split(','):
-#	secuencia.append(int(items))
-	
+#	secuencia.append(int(items)) 	
 if secuenciaValida(secuencia) == False:
 	print("La secuencia no es valida")
 else:
 	tablero = completarTableroEnOrden(secuencia,tableroVacio())
 	dibujarTablero(tablero)
-
-print(contenidoFilas(tablero))
+#print(contenidoFilas(tablero))
